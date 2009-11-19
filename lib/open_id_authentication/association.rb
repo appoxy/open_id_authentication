@@ -1,6 +1,16 @@
 module OpenIdAuthentication
-  class Association < ActiveRecord::Base
+  class Association < SimpleRecord::Base
     set_table_name :open_id_authentication_associations
+
+     has_attributes :handle,
+                   :secret,
+                   :assoc_type, :server_url
+
+    has_ints :issued, :lifetime
+#
+#    def from_record
+#      OpenID::Association.new(handle, secret.unpack( 'm' )[0], issued, lifetime, assoc_type)
+#    end
 
     def from_record
       OpenID::Association.new(handle, secret, issued, lifetime, assoc_type)
