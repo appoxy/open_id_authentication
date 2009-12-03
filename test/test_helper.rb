@@ -14,4 +14,4 @@ gem 'ruby-openid'
 require 'openid'
 
 RAILS_ROOT = File.dirname(__FILE__) unless defined? RAILS_ROOT
-require File.dirname(__FILE__) + "/../lib/open_id_authentication"
+require File.dirname(__FILE__) + "/../lib/openid_auth"

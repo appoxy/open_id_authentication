@@ -11,7 +11,7 @@ begin
         gemspec.homepage = "http://github.com/appoxy/open_id_authentication"
         gemspec.description = "Simple way to add openid to rails apps."
         gemspec.authors = ["Travis Reeder"]
-        gemspec.files = FileList['lib/**/*.rb']
+        gemspec.files = FileList['lib/**/*.rb', 'rails/**/*.rb']
         gemspec.add_dependency 'ruby-openid'
     end
 rescue LoadError

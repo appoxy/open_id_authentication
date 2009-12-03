@@ -3,9 +3,7 @@ OpenIdAuthentication
 
 Same as forked version, but modified for SimpleDB.
 
-Provides a thin wrapper around the excellent ruby-openid gem from JanRan. Be sure to install that first:
-
-  gem install ruby-openid
+Provides a thin wrapper around the excellent ruby-openid gem from JanRan.
 
 To understand what OpenID is about and how it works, it helps to read the documentation for lib/openid/consumer.rb
 from that gem.
@@ -29,8 +27,16 @@ The plugin also expects to find a root_url method that points to the home page o
 The root_url will be used as the default return_to and realm value for OpenID. If you'd like to specify a different
 realm, just pass in :realm=>"http://*.mydomain.com" in the options for authenticate_with_open_id.
 
+
+Installation
+============
+
+    gem install openid_auth
+
 Example
 =======
+
+* NOTE: These examples may need some updating! *
 
 This example is just to meant to demonstrate how you could use OpenID authentication. You might well want to add
 salted hash logins instead of plain text passwords and other requirements on top of this. Treat it as a starting point,

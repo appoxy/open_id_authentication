@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{openid_auth}
-  s.version = "1.0.0"
+  s.version = "1.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Travis Reeder"]
@@ -17,12 +17,13 @@ Gem::Specification.new do |s|
      "README.markdown"
   ]
   s.files = [
-    "lib/open_id_authentication.rb",
-     "lib/open_id_authentication/association.rb",
+    "lib/open_id_authentication/association.rb",
      "lib/open_id_authentication/db_store.rb",
      "lib/open_id_authentication/nonce.rb",
      "lib/open_id_authentication/request.rb",
-     "lib/open_id_authentication/timeout_fixes.rb"
+     "lib/open_id_authentication/timeout_fixes.rb",
+     "lib/openid_auth.rb",
+     "rails/init.rb"
   ]
   s.homepage = %q{http://github.com/appoxy/open_id_authentication}
   s.rdoc_options = ["--charset=UTF-8"]
