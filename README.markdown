@@ -26,8 +26,8 @@ The plugin also expects to find a root_url method that points to the home page o
 
   map.root :controller => 'articles'
 
-This plugin relies on Rails Edge revision 6317 or newer.
-
+The root_url will be used as the default return_to and realm value for OpenID. If you'd like to specify a different
+realm, just pass in :realm=>"http://*.mydomain.com" in the options for authenticate_with_open_id.
 
 Example
 =======

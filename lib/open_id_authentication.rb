@@ -143,7 +143,7 @@ module OpenIdAuthentication
       add_simple_registration_fields(open_id_request, options)
       add_ax_fields(open_id_request, options)
 #      puts 'OPENID url=' + open_id_redirect_url(open_id_request, return_to, method)
-      redirect_to(open_id_redirect_url(open_id_request, return_to, method))
+      redirect_to(open_id_redirect_url(open_id_request, return_to, method, options))
     rescue OpenIdAuthentication::InvalidOpenId => e
       yield Result[:invalid], identity_url, nil
     rescue OpenID::OpenIDError, Timeout::Error => e
@@ -151,7 +151,8 @@ module OpenIdAuthentication
       yield Result[:missing], identity_url, nil
     end
 
-    def complete_open_id_authentication
+
+  def complete_open_id_authentication
       params_with_path = params.reject { |key, value| request.path_parameters[key] }
       params_with_path.delete(:format)
       open_id_response = timeout_protection_from_identity_server { open_id_consumer.complete(params_with_path, requested_url) }
@@ -212,10 +213,10 @@ module OpenIdAuthentication
       open_id_request.add_extension( ax_request )
     end
 
-    def open_id_redirect_url(open_id_request, return_to = nil, method = nil)
+    def open_id_redirect_url(open_id_request, return_to = nil, method = nil, options={})
       open_id_request.return_to_args['_method'] = (method || request.method).to_s
       open_id_request.return_to_args['open_id_complete'] = '1'
-      open_id_request.redirect_url(root_url, return_to || requested_url)
+      open_id_request.redirect_url(options[:realm] || root_url, return_to || requested_url)
     end
 
     def requested_url
